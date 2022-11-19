@@ -2,13 +2,14 @@
 
 set +e
 
+sudo apt autoremove -y
+sudo apt clean 
+
 sudo apt-get update
 sudo apt-get upgrade -y
 
-snap refresh
-
-flatpak update
-
+if [ -z "$(snap --version 2>&1 >/dev/null)" ]; then snap refresh; fi
+if [ -z "$(flatpak --version 2>&1 >/dev/null)" ]; then flatpak update -y; fi
 if [ -z "$(brew --version 2>&1 >/dev/null)" ]; then brew update && brew upgrade; fi
 if [ -z "$(npm --version 2>&1 >/dev/null)" ]; then npm install -g npm@latest; fi
 if [ -z "$(yarn --version 2>&1 >/dev/null)" ]; then npm install -g yarn@latest; fi
@@ -19,6 +20,9 @@ python3 -m pip install --upgrade pip
 
 if [ -z "$(cargo --version 2>&1 >/dev/null)" ]; then cargo install cargo --force; fi
 if [ -z "$(rkhunter --version 2>&1 >/dev/null)" ]; then sudo rkhunter --update; fi
-if [ -z "$(clamd --version 2>&1 >/dev/null)" ]; then sudo freshclam; fi
+if [ -z "$(clamd --version 2>&1 >/dev/null)" ]; then 
+  sudo rm -rf /var/log/clamav/freshclam.log
+  sudo freshclam 
+fi
 if [ -z "$(pihole --version 2>&1 >/dev/null)" ]; then pihole -up; fi
 
