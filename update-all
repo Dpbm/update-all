@@ -2,27 +2,32 @@
 
 set +e
 
-sudo apt autoremove -y
+LOG() {
+	printf "\033[1;36m[LOG => Updating: $1]\033[0m\n"
+}
+
+
+sudo apt autoremove
 sudo apt clean 
 
 sudo apt-get update
-sudo apt-get upgrade -y
+sudo apt-get upgrade
 
-if [ -z "$(snap --version 2>&1 >/dev/null)" ]; then snap refresh; fi
-if [ -z "$(flatpak --version 2>&1 >/dev/null)" ]; then flatpak update -y; fi
-if [ -z "$(brew --version 2>&1 >/dev/null)" ]; then brew update && brew upgrade; fi
-if [ -z "$(npm --version 2>&1 >/dev/null)" ]; then npm install -g npm@latest; fi
-if [ -z "$(yarn --version 2>&1 >/dev/null)" ]; then npm install -g yarn@latest; fi
-if [ -z "$(pnpm --version 2>&1 >/dev/null)" ]; then npm install -g pnpm@latest; fi
 
-python -m pip install --upgrade pip
-python3 -m pip install --upgrade pip
-
-if [ -z "$(cargo --version 2>&1 >/dev/null)" ]; then cargo install cargo --force; fi
-if [ -z "$(rkhunter --version 2>&1 >/dev/null)" ]; then sudo rkhunter --update; fi
-if [ -z "$(clamd --version 2>&1 >/dev/null)" ]; then 
-  sudo rm -rf /var/log/clamav/freshclam.log
-  sudo freshclam 
+if [[ -z "$(snap --version 2>&1 >/dev/null)" ]]; then LOG "snap" && snap refresh; fi
+if [[ -z "$(flatpak --version 2>&1 >/dev/null)" ]]; then LOG "flatpak" && flatpak update -y; fi
+if [[ -z "$(brew --version 2>&1 >/dev/null)" ]]; then LOG "brew" && brew update && brew upgrade; fi
+if [[ -z "$(npm --version 2>&1 >/dev/null)" ]]; then LOG "npm" && sudo npm install -g npm@latest; fi
+if [[ -z "$(yarn --version 2>&1 >/dev/null)" ]]; then LOG "yarn" && npm install -g yarn@latest; fi
+if [[ -z "$(pnpm --version 2>&1 >/dev/null)" ]]; then LOG "pnpm" && npm install -g pnpm@latest; fi
+if [[ -z "$(python2 --version 2>&1 >/dev/null)" ]]; then LOG "python2" && python2 -m pip install --upgrade pip; fi
+if [[ -z "$(python3.10 --version 2>&1 >/dev/null)" ]]; then LOG "python3.10" && python3.10 -m pip install --upgrade pip; fi
+if [[ -z "$(python3.11 --version 2>&1 >/dev/null)" ]]; then LOG "python3.11" && python3.11 -m pip install --upgrade pip; fi
+if [[ -z "$(cargo --version 2>&1 >/dev/null)" ]]; then LOG "cargo" && cargo install cargo --force; fi
+if [[ -z "$(rkhunter --version 2>&1 >/dev/null)" ]]; then LOG "rkhunter" && sudo rkhunter --update; fi
+if [[ -z "$(clamd --version 2>&1 >/dev/null)" ]]; then
+	LOG "clamd"
+	sudo rm -rf /var/log/clamav/freshclam.log
+	sudo freshclam 
 fi
-if [ -z "$(pihole --version 2>&1 >/dev/null)" ]; then pihole -up; fi
-
+if [[ -z "$(pihole --version 2>&1 >/dev/null)" ]]; then LOG "pihole" && pihole -up; fi
