@@ -49,3 +49,8 @@ example using PATH:
     echo "export PATH=/path/to/update-all/executable:$PATH" >> ~/.zshrc
     source ~/.zshrc
 ```
+
+You can also add this as a global executable, just moving the `update-all` file to `/usr/bin`. Like this:
+```bash
+sudo mv ./update-all/update-all /usr/bin
+```
