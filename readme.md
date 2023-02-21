@@ -16,6 +16,7 @@ Using the script the following will be updated:
 * rkhunter database
 * clamav database
 * pihole version
+* youtube-dl version
 
 ## to run
 
