@@ -17,6 +17,7 @@ Using the script the following will be updated:
 * clamav database
 * pihole version
 * youtube-dl version
+* yt-dlp version
 
 ## to run
 

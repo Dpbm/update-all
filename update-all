@@ -33,3 +33,4 @@ if [[ -z "$(clamd --version 2>&1 >/dev/null)" ]]; then
 fi
 if [[ -z "$(pihole --version 2>&1 >/dev/null)" ]]; then LOG "pihole" && pihole -up; fi
 if [[ -z "$(youtube-dl --version 2>&1 >dev/null)" ]]; then LOG "youtube-dl" && youtube-dl -U; fi
+if [[ -z "$(yt-dlp --version 2>&1 >dev/null)" ]]; then LOG "yt-dlp" && sudo yt-dlp -U; fi
