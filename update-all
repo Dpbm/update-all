@@ -17,7 +17,7 @@ sudo apt-get upgrade
 if [[ -z "$(snap --version 2>&1 >/dev/null)" ]]; then LOG "snap" && snap refresh; fi
 if [[ -z "$(flatpak --version 2>&1 >/dev/null)" ]]; then LOG "flatpak" && flatpak update -y; fi
 if [[ -z "$(brew --version 2>&1 >/dev/null)" ]]; then LOG "brew" && brew update && brew upgrade; fi
-if [[ -z "$(npm --version 2>&1 >/dev/null)" ]]; then LOG "npm" && sudo npm install -g npm@latest; fi
+if [[ -z "$(npm --version 2>&1 >/dev/null)" ]]; then LOG "npm" && npm install -g npm@latest; fi
 if [[ -z "$(yarn --version 2>&1 >/dev/null)" ]]; then LOG "yarn" && npm install -g yarn@latest; fi
 if [[ -z "$(pnpm --version 2>&1 >/dev/null)" ]]; then LOG "pnpm" && npm install -g pnpm@latest; fi
 if [[ -z "$(python2 --version 2>&1 >/dev/null)" ]]; then LOG "python2" && python2 -m pip install --upgrade pip; fi
