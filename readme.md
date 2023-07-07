@@ -18,6 +18,7 @@ Using the script the following will be updated:
 * pihole version
 * youtube-dl version
 * yt-dlp version
+* conda version
 
 ## to run
 

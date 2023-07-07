@@ -20,6 +20,7 @@ if [[ -z "$(brew --version 2>&1 >/dev/null)" ]]; then LOG "brew" && brew update 
 if [[ -z "$(npm --version 2>&1 >/dev/null)" ]]; then LOG "npm" && npm install -g npm@latest; fi
 if [[ -z "$(yarn --version 2>&1 >/dev/null)" ]]; then LOG "yarn" && npm install -g yarn@latest; fi
 if [[ -z "$(pnpm --version 2>&1 >/dev/null)" ]]; then LOG "pnpm" && npm install -g pnpm@latest; fi
+if [[ -z "$(conda --version 2>&1 >/dev/null)" ]]; then LOG "conda" && conda update -n base -c defaults conda; fi
 if [[ -z "$(python2 --version 2>&1 >/dev/null)" ]]; then LOG "python2" && python2 -m pip install --upgrade pip; fi
 if [[ -z "$(python3.10 --version 2>&1 >/dev/null)" ]]; then LOG "python3.10" && python3.10 -m pip install --upgrade pip; fi
 if [[ -z "$(python3.11 --version 2>&1 >/dev/null)" ]]; then LOG "python3.11" && python3.11 -m pip install --upgrade pip; fi
@@ -29,7 +30,7 @@ if [[ -z "$(rkhunter --version 2>&1 >/dev/null)" ]]; then LOG "rkhunter" && sudo
 if [[ -z "$(clamd --version 2>&1 >/dev/null)" ]]; then
 	LOG "clamd"
 	sudo rm -rf /var/log/clamav/freshclam.log
-	sudo freshclam 
+	sudo freshclam
 fi
 if [[ -z "$(pihole --version 2>&1 >/dev/null)" ]]; then LOG "pihole" && pihole -up; fi
 if [[ -z "$(youtube-dl --version 2>&1 >dev/null)" ]]; then LOG "youtube-dl" && youtube-dl -U; fi
