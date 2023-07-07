@@ -1,0 +1,13 @@
+name: 'Test cli'
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Run
+              run: chmod +x update-all && update-all
