@@ -4,13 +4,11 @@ on:
     push:
         branches:
             - main
-
-env:
-
-    GH_TOKEN ${{ github.token }}
 jobs:
     test:
         runs-on: ubuntu-latest
+        env:
+          GH_TOKEN ${{ github.token }}
         steps:
           - name: checkout
             uses: actions/checkout@v3
