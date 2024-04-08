@@ -3,7 +3,7 @@
 set +e
 
 LOG() {
-	printf "\033[1;36m[LOG => Updating: $1]\033[0m\n"
+	printf "\033[1;36m[Updating: $1]\033[0m\n"
 }
 
 
@@ -12,7 +12,6 @@ sudo apt clean
 
 sudo apt-get update
 sudo apt-get upgrade
-
 
 if [[ -z "$(snap --version 2>&1 >/dev/null)" ]]; then LOG "snap" && snap refresh; fi
 if [[ -z "$(flatpak --version 2>&1 >/dev/null)" ]]; then LOG "flatpak" && flatpak update -y; fi
@@ -33,5 +32,6 @@ if [[ -z "$(clamd --version 2>&1 >/dev/null)" ]]; then
 	sudo freshclam
 fi
 if [[ -z "$(pihole --version 2>&1 >/dev/null)" ]]; then LOG "pihole" && pihole -up; fi
-if [[ -z "$(youtube-dl --version 2>&1 >dev/null)" ]]; then LOG "youtube-dl" && youtube-dl -U; fi
-if [[ -z "$(yt-dlp --version 2>&1 >dev/null)" ]]; then LOG "yt-dlp" && sudo yt-dlp -U; fi
+if [[ -z "$(youtube-dl --version 2>&1 >/dev/null)" ]]; then LOG "youtube-dl" && youtube-dl -U; fi
+if [[ -z "$(yt-dlp --version 2>&1 >/dev/null)" ]]; then LOG "yt-dlp" && sudo yt-dlp -U; fi
+if [[ -z "$(gh --version 2>&1 >/dev/null)" ]]; then LOG "gh" && gh extension upgrade --all; fi

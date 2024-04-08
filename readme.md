@@ -19,6 +19,7 @@ Using the script the following will be updated:
 * youtube-dl version
 * yt-dlp version
 * conda version
+* github cli extensions
 
 ## to run
 
