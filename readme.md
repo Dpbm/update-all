@@ -20,6 +20,7 @@ Using the script the following will be updated:
 * yt-dlp version
 * conda version
 * github cli extensions
+* flutter version
 
 ## to run
 
