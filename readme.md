@@ -21,6 +21,7 @@ Using the script the following will be updated:
 * conda version
 * github cli extensions
 * flutter version
+* AdGuardHome version
 
 ## to run
 

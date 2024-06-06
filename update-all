@@ -36,3 +36,4 @@ if [[ -z "$(youtube-dl --version 2>&1 >/dev/null)" ]]; then LOG "youtube-dl" && 
 if [[ -z "$(yt-dlp --version 2>&1 >/dev/null)" ]]; then LOG "yt-dlp" && sudo yt-dlp -U; fi
 if [[ -z "$(gh --version 2>&1 >/dev/null)" ]]; then LOG "gh" && gh extension upgrade --all; fi
 if [[ -z "$(flutter --version 2>&1 >/dev/null)" ]]; then LOG "flutter" && flutter upgrade; fi
+if [[ -z "$(AdGuardHome --version 2>&1 >/dev/null)" ]]; then LOG "AdGuardHome" && sudo AdGuardHome --update; fi
