@@ -37,3 +37,4 @@ if [[ -z "$(yt-dlp --version 2>&1 >/dev/null)" ]]; then LOG "yt-dlp" && sudo yt-
 if [[ -z "$(gh --version 2>&1 >/dev/null)" ]]; then LOG "gh" && gh extension upgrade --all; fi
 if [[ -z "$(flutter --version 2>&1 >/dev/null)" ]]; then LOG "flutter" && flutter upgrade; fi
 if [[ -z "$(AdGuardHome --version 2>&1 >/dev/null)" ]]; then LOG "AdGuardHome" && sudo AdGuardHome --update; fi
+if [[ -z "$(mojo --version 2>&1 >/dev/null)" ]]; then LOG "Mojo" && modular update mojo; fi

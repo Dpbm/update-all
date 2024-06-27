@@ -22,6 +22,7 @@ Using the script the following will be updated:
 * github cli extensions
 * flutter version
 * AdGuardHome version
+* Mojo version
 
 ## to run
 
