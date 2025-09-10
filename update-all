@@ -38,3 +38,4 @@ if [[ -z "$(gh --version 2>&1 >/dev/null)" ]]; then LOG "gh" && gh extension upg
 if [[ -z "$(flutter --version 2>&1 >/dev/null)" ]]; then LOG "flutter" && flutter upgrade; fi
 if [[ -z "$(AdGuardHome --version 2>&1 >/dev/null)" ]]; then LOG "AdGuardHome" && sudo AdGuardHome --update; fi
 if [[ -z "$(mojo --version 2>&1 >/dev/null)" ]]; then LOG "Mojo" && modular update mojo; fi
+if [[ -z "$(mamba --version 2>&1 >/dev/null)" ]]; then LOG "Mamba" && mamba update --all; fi
