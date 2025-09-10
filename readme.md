@@ -26,6 +26,9 @@ Using the script the following will be updated:
 * Pixi version
 * Rustup version
 * Sdkman version
+* Mamba
+* Ruby gems From system
+* Mise version
 
 ## to run
 
