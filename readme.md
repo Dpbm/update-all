@@ -61,3 +61,12 @@ You can also add this as a global executable, just moving the `update-all` file 
 ```bash
 sudo mv ./update-all/update-all /usr/bin
 ```
+
+Using this approach is the `recommended` here, since with it you can use the cronjob that's set in `job.sh`.
+To set it up run:
+```bash
+chmod +x job.sh
+./job.sh
+```
+
+So every day at `09:00AM`, the script will run and update everything for you.
