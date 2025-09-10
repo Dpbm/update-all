@@ -6,6 +6,12 @@ LOG() {
 	printf "\033[1;36m[Updating: $1]\033[0m\n"
 }
 
+exit_gracefully(){
+	printf "\033[33mExiting...\033[0m\n"
+	exit
+}
+
+trap exit_gracefully SIGINT
 
 sudo apt autoremove -y
 sudo apt clean 
