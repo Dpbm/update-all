@@ -46,3 +46,4 @@ if [[ -z "$(AdGuardHome --version 2>&1 >/dev/null)" ]]; then LOG "AdGuardHome" &
 if [[ -z "$(mojo --version 2>&1 >/dev/null)" ]]; then LOG "Mojo" && modular update mojo; fi
 if [[ -z "$(mamba --version 2>&1 >/dev/null)" ]]; then LOG "Mamba" && mamba update --all; fi
 if [[ -z "$(mise --version 2>&1 >/dev/null)" ]]; then LOG "Mise" && mise self-update; fi
+if [[ -z "$(gem --version 2>&1 >/dev/null)" ]]; then LOG "Ruby system gems" && gem update --system; fi
