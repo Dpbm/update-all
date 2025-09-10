@@ -30,6 +30,7 @@ if [[ -z "$(python2 --version 2>&1 >/dev/null)" ]]; then LOG "python2" && python
 if [[ -z "$(python3.10 --version 2>&1 >/dev/null)" ]]; then LOG "python3.10" && python3.10 -m pip install --upgrade pip; fi
 if [[ -z "$(python3.11 --version 2>&1 >/dev/null)" ]]; then LOG "python3.11" && python3.11 -m pip install --upgrade pip; fi
 if [[ -z "$(python3 --version 2>&1 >/dev/null)" ]]; then LOG "python3" && python3 -m pip install --upgrade pip; fi
+if [[ -z "$(rustup --version 2>&1 >/dev/null)" ]]; then LOG "rustup" && rustup self update; fi
 if [[ -z "$(cargo --version 2>&1 >/dev/null)" ]]; then LOG "cargo" && cargo install cargo --force; fi
 if [[ -z "$(rkhunter --version 2>&1 >/dev/null)" ]]; then LOG "rkhunter" && sudo rkhunter --update; fi
 if [[ -z "$(clamd --version 2>&1 >/dev/null)" ]]; then
