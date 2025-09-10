@@ -23,6 +23,9 @@ Using the script the following will be updated:
 * flutter version
 * AdGuardHome version
 * Mojo version
+* Pixi version
+* Rustup version
+* Sdkman version
 
 ## to run
 
