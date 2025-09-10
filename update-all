@@ -19,13 +19,13 @@ sudo apt clean
 sudo apt update
 sudo apt upgrade -y
 
-if [[ -z "$(snap --version 2>&1 >/dev/null)" ]]; then LOG "snap" && snap refresh; fi
+if [[ -z "$(snap --version 2>&1 >/dev/null)" ]]; then LOG "snap" && sudo snap refresh; fi
 if [[ -z "$(flatpak --version 2>&1 >/dev/null)" ]]; then LOG "flatpak" && flatpak update -y; fi
 if [[ -z "$(brew --version 2>&1 >/dev/null)" ]]; then LOG "brew" && brew update && brew upgrade; fi
 if [[ -z "$(npm --version 2>&1 >/dev/null)" ]]; then LOG "npm" && npm install -g npm@latest; fi
 if [[ -z "$(yarn --version 2>&1 >/dev/null)" ]]; then LOG "yarn" && npm install -g yarn@latest; fi
 if [[ -z "$(pnpm --version 2>&1 >/dev/null)" ]]; then LOG "pnpm" && npm install -g pnpm@latest; fi
-if [[ -z "$(conda --version 2>&1 >/dev/null)" ]]; then LOG "conda" && conda update -n base -c defaults conda; fi
+if [[ -z "$(conda --version 2>&1 >/dev/null)" ]]; then LOG "conda" && conda update -n base -c defaults conda -y; fi
 if [[ -z "$(python2 --version 2>&1 >/dev/null)" ]]; then LOG "python2" && python2 -m pip install --upgrade pip; fi
 if [[ -z "$(python3.10 --version 2>&1 >/dev/null)" ]]; then LOG "python3.10" && python3.10 -m pip install --upgrade pip; fi
 if [[ -z "$(python3.11 --version 2>&1 >/dev/null)" ]]; then LOG "python3.11" && python3.11 -m pip install --upgrade pip; fi
@@ -42,11 +42,12 @@ if [[ -z "$(pihole --version 2>&1 >/dev/null)" ]]; then LOG "pihole" && pihole -
 if [[ -z "$(youtube-dl --version 2>&1 >/dev/null)" ]]; then LOG "youtube-dl" && youtube-dl -U; fi
 if [[ -z "$(yt-dlp --version 2>&1 >/dev/null)" ]]; then LOG "yt-dlp" && sudo yt-dlp -U; fi
 if [[ -z "$(gh --version 2>&1 >/dev/null)" ]]; then LOG "gh" && gh extension upgrade --all; fi
-if [[ -z "$(flutter --version 2>&1 >/dev/null)" ]]; then LOG "flutter" && flutter upgrade; fi
+if [[ -z "$(flutter --version 2>&1 >/dev/null)" ]]; then LOG "flutter" && flutter upgrade --force; fi
 if [[ -z "$(AdGuardHome --version 2>&1 >/dev/null)" ]]; then LOG "AdGuardHome" && sudo AdGuardHome --update; fi
 if [[ -z "$(mojo --version 2>&1 >/dev/null)" ]]; then LOG "Mojo" && modular update mojo; fi
-if [[ -z "$(mamba --version 2>&1 >/dev/null)" ]]; then LOG "Mamba" && mamba update --all; fi
+if [[ -z "$(mamba --version 2>&1 >/dev/null)" ]]; then LOG "Mamba" && mamba update --all -y; fi
 if [[ -z "$(mise --version 2>&1 >/dev/null)" ]]; then LOG "Mise" && mise self-update; fi
 if [[ -z "$(gem --version 2>&1 >/dev/null)" ]]; then LOG "Ruby system gems" && gem update --system; fi
 if [[ -z "$(sdk --version 2>&1 >/dev/null)" ]]; then LOG "SDKman" && sdk selfupdate; fi
 if [[ -z "$(elan --version 2>&1 >/dev/null)" ]]; then LOG "ELAN" && elan self update; fi
+if [[ -z "$(pixi --version 2>&1 >/dev/null)" ]]; then LOG "PIXI" && pixi self-update; fi
