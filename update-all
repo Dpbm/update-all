@@ -48,3 +48,4 @@ if [[ -z "$(mojo --version 2>&1 >/dev/null)" ]]; then LOG "Mojo" && modular upda
 if [[ -z "$(mamba --version 2>&1 >/dev/null)" ]]; then LOG "Mamba" && mamba update --all; fi
 if [[ -z "$(mise --version 2>&1 >/dev/null)" ]]; then LOG "Mise" && mise self-update; fi
 if [[ -z "$(gem --version 2>&1 >/dev/null)" ]]; then LOG "Ruby system gems" && gem update --system; fi
+if [[ -z "$(sdk --version 2>&1 >/dev/null)" ]]; then LOG "SDKman" && sdk selfupdate; fi
